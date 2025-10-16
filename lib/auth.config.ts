@@ -89,14 +89,11 @@ export const authConfig = {
     },
     async session({ session, token }) {
       console.log("[Auth] Session callback - token role:", token.role);
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          id: token.id as string,
-          role: token.role as string,
-        },
-      };
+      if (session.user) {
+        session.user.id = token.id as string;
+        session.user.role = token.role as string;
+      }
+      return session;
     },
   },
 } satisfies NextAuthConfig;
