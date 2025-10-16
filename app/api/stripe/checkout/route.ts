@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { db } from "@/lib/db";
 import { auth } from "@/lib/auth";
 
@@ -67,6 +67,7 @@ export async function POST(request: NextRequest) {
 
     // Create Stripe Checkout Session
     console.log("[Stripe Checkout] Creating Stripe session...");
+    const stripe = getStripe();
     const stripeSession = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
