@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Eye, EyeOff, Mail, Lock, Shield } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface FormFieldProps {
   type: string;
@@ -279,12 +280,12 @@ export default function AdminLoginPage() {
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
               Kein Admin-Zugang?{' '}
-              <a
+              <Link
                 href="/"
                 className="text-red-500 hover:underline font-medium"
               >
                 Zurück zur Startseite
-              </a>
+              </Link>
             </p>
           </div>
         </div>

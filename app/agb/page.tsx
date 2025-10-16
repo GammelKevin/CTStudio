@@ -20,8 +20,8 @@ export default function AGBPage() {
             </h2>
             <p>
               Die nachfolgenden Allgemeinen Geschäftsbedingungen (AGB) gelten
-              für alle Verträge zwischen CT Studio (nachfolgend „Auftragnehmer")
-              und seinen Kunden (nachfolgend „Auftraggeber") über die Erbringung
+              für alle Verträge zwischen CT Studio (nachfolgend &ldquo;Auftragnehmer&rdquo;)
+              und seinen Kunden (nachfolgend &ldquo;Auftraggeber&rdquo;) über die Erbringung
               von Dienstleistungen im Bereich der Webentwicklung und
               verwandten Dienstleistungen.
             </p>
@@ -43,7 +43,7 @@ export default function AGBPage() {
               unverbindlichen Online-Katalog.
             </p>
             <p className="mt-4">
-              Durch Anklicken des Buttons „Kaufen" oder „Buchen" gibt der
+              Durch Anklicken des Buttons &ldquo;Kaufen&rdquo; oder &ldquo;Buchen&rdquo; gibt der
               Auftraggeber ein verbindliches Angebot zum Abschluss eines
               Vertrages ab. Der Auftragnehmer kann dieses Angebot innerhalb von
               5 Tagen durch Zusendung einer Auftragsbestätigung per E-Mail oder
