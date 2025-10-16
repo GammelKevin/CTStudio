@@ -9,7 +9,7 @@ const updateOrderSchema = z.object({
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -18,11 +18,12 @@ export async function PUT(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     const body = await request.json();
     const { status } = updateOrderSchema.parse(body);
 
     const order = await db.order.update({
-      where: { id: params.id },
+      where: { id },
       data: { status },
     });
 
@@ -38,7 +39,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -47,9 +48,11 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
+
     // Delete order (items will be deleted automatically via cascade)
     await db.order.delete({
-      where: { id: params.id },
+      where: { id },
     });
 
     return NextResponse.json({ success: true });

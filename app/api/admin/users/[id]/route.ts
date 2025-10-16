@@ -14,7 +14,7 @@ const updateUserSchema = z.object({
 // PUT update user
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -23,6 +23,7 @@ export async function PUT(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     const body = await request.json();
     const validatedData = updateUserSchema.parse(body);
 
@@ -35,7 +36,7 @@ export async function PUT(
     }
 
     const user = await db.user.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData,
       select: {
         id: true,
@@ -66,7 +67,7 @@ export async function PUT(
 // DELETE user
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -75,8 +76,10 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
+
     // Prevent deleting yourself
-    if (session.user.id === params.id) {
+    if (session.user.id === id) {
       return NextResponse.json(
         { error: "Du kannst dich nicht selbst löschen" },
         { status: 400 }
@@ -84,7 +87,7 @@ export async function DELETE(
     }
 
     await db.user.delete({
-      where: { id: params.id },
+      where: { id },
     });
 
     return NextResponse.json({ success: true });
