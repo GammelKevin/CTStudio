@@ -1,33 +1,27 @@
-import NextAuth from "next-auth";
-import { authConfig } from "@/lib/auth.config";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Create edge-safe auth instance without Prisma adapter
-const { auth } = NextAuth(authConfig);
-
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
+export function middleware(req: NextRequest) {
+  // Simple middleware without NextAuth for edge compatibility
+  const token = req.cookies.get("authjs.session-token") || req.cookies.get("__Secure-authjs.session-token");
   const { pathname } = req.nextUrl;
 
-  // Protect admin routes - only ADMIN role
+  // Protect admin routes
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    if (!isLoggedIn) {
+    if (!token) {
       return NextResponse.redirect(new URL("/admin/login", req.url));
-    }
-    if (req.auth?.user?.role !== "ADMIN") {
-      return NextResponse.redirect(new URL("/", req.url));
     }
   }
 
-  // Protect profile routes - any authenticated user
+  // Protect profile routes
   if (pathname.startsWith("/profile")) {
-    if (!isLoggedIn) {
+    if (!token) {
       return NextResponse.redirect(new URL("/login", req.url));
     }
   }
 
   return NextResponse.next();
-});
+}
 
 export const config = {
   matcher: ["/admin/:path*", "/profile/:path*"],
