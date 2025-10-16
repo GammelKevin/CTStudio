@@ -31,9 +31,12 @@ export const authConfig = {
             throw new Error("Ungültige Anmeldedaten");
           }
 
+          const email = credentials.email as string;
+          const password = credentials.password as string;
+
           const user = await db.user.findUnique({
             where: {
-              email: credentials.email,
+              email,
             },
           });
 
@@ -45,7 +48,7 @@ export const authConfig = {
           }
 
           const isPasswordValid = await compare(
-            credentials.password,
+            password,
             user.password
           );
 
