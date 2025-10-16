@@ -1,5 +1,6 @@
 import type { NextAuthConfig } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { UserRole } from "@prisma/client";
 
 // Edge-safe configuration without Prisma
 export const authConfig = {
@@ -91,7 +92,7 @@ export const authConfig = {
       console.log("[Auth] Session callback - token role:", token.role);
       if (session.user) {
         session.user.id = token.id as string;
-        session.user.role = token.role as string;
+        session.user.role = token.role as UserRole;
       }
       return session;
     },
