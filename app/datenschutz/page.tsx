@@ -236,7 +236,7 @@ export default function DatenschutzPage() {
             </h2>
             <h3 className="text-xl font-medium text-foreground mb-2">Cookies</h3>
             <p>
-              Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind
+              Unsere Internetseiten verwenden so genannte &ldquo;Cookies&rdquo;. Cookies sind
               kleine Datenpakete und richten auf Ihrem Endgerät keinen Schaden
               an. Sie werden entweder vorübergehend für die Dauer einer Sitzung
               (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem
@@ -357,7 +357,7 @@ export default function DatenschutzPage() {
             <p>
               Wir nutzen den Zahlungsdienstleister Stripe. Anbieter ist Stripe
               Payments Europe Ltd., 1 Grand Canal Street Lower, Grand Canal Dock,
-              Dublin, Irland (nachfolgend „Stripe").
+              Dublin, Irland (nachfolgend &ldquo;Stripe&rdquo;).
             </p>
             <p className="mt-4">
               Wenn Sie sich für eine Zahlung mit Stripe entscheiden, werden die
