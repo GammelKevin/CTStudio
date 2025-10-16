@@ -5,7 +5,10 @@
       "Bash(npm run dev:*)",
       "Bash(cat:*)",
       "Bash(taskkill:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nMake website responsive for mobile\n\n- Optimize Navbar spacing and logo size for mobile\n- Make Hero section fully responsive (text, buttons, stats)\n- Optimize Footer padding and text sizes for small screens\n- Make Contact/Chat page mobile-friendly (header, chat container, messages, preview modal)\nEOF\n)\")",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []

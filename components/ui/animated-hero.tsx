@@ -53,19 +53,19 @@ export function AnimatedHero() {
       {/* Content */}
       <div className="relative z-20 w-full">
         <div className="container mx-auto px-4">
-          <div className="flex gap-6 py-20 lg:py-32 items-center justify-center flex-col min-h-[calc(100vh-5rem)]">
+          <div className="flex gap-4 sm:gap-6 py-12 sm:py-20 lg:py-32 items-center justify-center flex-col min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)]">
             {/* Main Title */}
-            <div className="flex gap-4 flex-col w-full max-w-5xl flex-1 justify-center px-4">
+            <div className="flex gap-3 sm:gap-4 flex-col w-full max-w-5xl flex-1 justify-center px-4">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl lg:text-6xl tracking-tight text-center font-medium"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-center font-medium"
               >
                 <div className="text-white">
                   Wir bauen Websites,
                 </div>
-                <div className="relative h-auto w-full flex items-center justify-center overflow-visible min-h-[100px] py-4">
+                <div className="relative h-auto w-full flex items-center justify-center overflow-visible min-h-[80px] sm:min-h-[100px] py-3 sm:py-4">
                   {titles.map((title, index) => (
                     <motion.div
                       key={index}
@@ -97,26 +97,26 @@ export function AnimatedHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 mt-16"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-16 w-full sm:w-auto px-4 sm:px-0"
             >
               <Button
                 size="lg"
-                className="gap-2 text-lg px-8 py-6 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                className="gap-2 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 w-full sm:w-auto"
                 asChild
               >
                 <Link href="/products">
-                  <ShoppingCart className="w-5 h-5" />
+                  <ShoppingCart className="w-4 sm:w-5 h-4 sm:h-5" />
                   Unsere Produkte
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="gap-2 text-lg px-8 py-6 border-purple-500/50 hover:bg-purple-500/10"
+                className="gap-2 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-purple-500/50 hover:bg-purple-500/10 w-full sm:w-auto"
                 asChild
               >
                 <Link href="/contact">
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-4 sm:w-5 h-4 sm:h-5" />
                   Kontakt aufnehmen
                 </Link>
               </Button>
@@ -127,7 +127,7 @@ export function AnimatedHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl w-full"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-24 max-w-4xl w-full px-4"
             >
               {[
                 { value: "5+", label: "Zufriedene Kunden" },
@@ -136,10 +136,10 @@ export function AnimatedHero() {
                 { value: "5★", label: "Bewertung" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-muted-foreground mt-1">
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-1">
                     {stat.label}
                   </div>
                 </div>

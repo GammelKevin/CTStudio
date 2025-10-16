@@ -55,8 +55,8 @@ export function Navbar() {
           : "bg-transparent backdrop-blur-0"
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="group relative">
             <motion.div
               className="flex items-center gap-3"
@@ -65,7 +65,7 @@ export function Navbar() {
             >
               <div className="relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-lg blur-xl opacity-40 group-hover:opacity-60 transition-all duration-500" />
-                <span className="relative text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
+                <span className="relative text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
                   CT Studio
                 </span>
               </div>

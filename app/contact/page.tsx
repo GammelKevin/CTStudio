@@ -200,17 +200,17 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-purple-950/20 to-black">
-      <div className="container mx-auto px-4 max-w-4xl pt-32 pb-20">
+      <div className="container mx-auto px-4 max-w-4xl pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent px-4">
             Lass uns sprechen
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg px-4">
             Unser Chat-Assistent hilft dir schnell und einfach
           </p>
         </motion.div>
@@ -220,10 +220,10 @@ export default function ContactPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="relative bg-black/40 backdrop-blur-xl rounded-3xl border border-purple-500/20 overflow-hidden shadow-2xl shadow-purple-500/10"
+          className="relative bg-black/40 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-purple-500/20 overflow-hidden shadow-2xl shadow-purple-500/10"
         >
           {/* Chat Messages */}
-          <div className="h-[500px] overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent">
+          <div className="h-[400px] sm:h-[500px] overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent">
             <AnimatePresence>
               {messages.map((message) => (
                 <motion.div
@@ -232,34 +232,34 @@ export default function ContactPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
-                  className={`flex gap-3 ${
+                  className={`flex gap-2 sm:gap-3 ${
                     message.sender === "user" ? "flex-row-reverse" : "flex-row"
                   }`}
                 >
                   {/* Avatar */}
                   <div
-                    className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
+                    className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center ${
                       message.sender === "bot"
                         ? "bg-gradient-to-r from-purple-500 to-pink-500"
                         : "bg-gradient-to-r from-blue-500 to-cyan-500"
                     }`}
                   >
                     {message.sender === "bot" ? (
-                      <Bot className="w-5 h-5 text-white" />
+                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     ) : (
-                      <User className="w-5 h-5 text-white" />
+                      <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     )}
                   </div>
 
                   {/* Message Bubble */}
                   <div
-                    className={`max-w-[70%] rounded-2xl px-4 py-3 ${
+                    className={`max-w-[75%] sm:max-w-[70%] rounded-xl sm:rounded-2xl px-3 py-2 sm:px-4 sm:py-3 ${
                       message.sender === "bot"
                         ? "bg-purple-500/10 border border-purple-500/30 text-white"
                         : "bg-blue-500/10 border border-blue-500/30 text-white"
                     }`}
                   >
-                    <p className="text-sm leading-relaxed">{message.text}</p>
+                    <p className="text-xs sm:text-sm leading-relaxed break-words">{message.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -344,24 +344,24 @@ export default function ContactPage() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ type: "spring", duration: 0.5 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
               >
-                <div className="relative w-full max-w-2xl">
+                <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                   {/* Glow Effects */}
                   <div className="absolute -top-24 -left-24 w-48 h-48 bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
                   <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-pink-500/30 rounded-full blur-3xl animate-pulse" />
 
                   {/* Card */}
-                  <div className="relative bg-gradient-to-br from-black via-purple-950/40 to-black border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20">
+                  <div className="relative bg-gradient-to-br from-black via-purple-950/40 to-black border border-purple-500/30 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20">
                     {/* Header */}
-                    <div className="relative p-8 pb-6 border-b border-purple-500/20">
+                    <div className="relative p-4 sm:p-6 md:p-8 pb-4 sm:pb-6 border-b border-purple-500/20">
                       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-purple-500/10" />
                       <div className="relative">
                         <motion.h3
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.1 }}
-                          className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
+                          className="text-2xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
                         >
                           Fast geschafft! ✨
                         </motion.h3>
@@ -369,7 +369,7 @@ export default function ContactPage() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.2 }}
-                          className="text-gray-400"
+                          className="text-gray-400 text-sm sm:text-base"
                         >
                           Überprüfe deine Angaben bevor wir sie absenden
                         </motion.p>
@@ -377,7 +377,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 space-y-3">
+                    <div className="p-4 sm:p-6 md:p-8 space-y-2 sm:space-y-3">
                       {/* Subject */}
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -490,23 +490,23 @@ export default function ContactPage() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6 }}
-                      className="p-8 pt-6 border-t border-purple-500/20 bg-gradient-to-b from-transparent to-black/40"
+                      className="p-4 sm:p-6 md:p-8 pt-4 sm:pt-6 border-t border-purple-500/20 bg-gradient-to-b from-transparent to-black/40"
                     >
-                      <div className="flex gap-4">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <Button
                           onClick={handleCancelPreview}
                           variant="outline"
-                          className="flex-1 h-14 text-base border-2 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 rounded-2xl transition-all hover:scale-105"
+                          className="flex-1 h-12 sm:h-14 text-sm sm:text-base border-2 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 rounded-xl sm:rounded-2xl transition-all hover:scale-105"
                         >
-                          <X className="w-5 h-5 mr-2" />
+                          <X className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                           Abbrechen
                         </Button>
                         <Button
                           onClick={handleConfirmSend}
                           disabled={isSubmitting}
-                          className="flex-1 h-14 text-base bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600 shadow-lg shadow-purple-500/50 rounded-2xl transition-all hover:scale-105 hover:shadow-purple-500/70"
+                          className="flex-1 h-12 sm:h-14 text-sm sm:text-base bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600 shadow-lg shadow-purple-500/50 rounded-xl sm:rounded-2xl transition-all hover:scale-105 hover:shadow-purple-500/70"
                         >
-                          <Check className="w-5 h-5 mr-2" />
+                          <Check className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                           Jetzt senden
                         </Button>
                       </div>

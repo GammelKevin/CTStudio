@@ -17,10 +17,10 @@ import Link from "next/link"
 function Footerdemo() {
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8">
+        <div className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">
+            <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
                 CT Studio
               </span>
@@ -94,11 +94,11 @@ function Footerdemo() {
             </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-8 sm:mt-12 flex flex-col items-center justify-between gap-3 sm:gap-4 border-t pt-6 sm:pt-8 text-center md:flex-row">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             © 2025 CT Studio. Alle Rechte vorbehalten.
           </p>
-          <nav className="flex gap-4 text-sm">
+          <nav className="flex gap-3 sm:gap-4 text-xs sm:text-sm">
             <Link href="/datenschutz" className="transition-colors hover:text-neon-purple">
               Datenschutz
             </Link>
